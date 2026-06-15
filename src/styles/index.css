@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Design tokens.
+ * Colors are RGB channel triplets so Tailwind's "/<alpha>" opacity modifiers work
+ * (see tailwind.config.js). The whole OS theme can be swapped at runtime by toggling
+ * the `.light` class and overriding `--c-accent` from Settings (Phase 7).
+ */
+:root {
+  --c-bg: 11 13 18;
+  --c-surface: 18 21 28;
+  --c-elevated: 26 31 43;
+  --c-border: 38 43 58;
+  --c-fg: 231 233 238;
+  --c-muted: 148 157 178;
+  --c-accent: 99 102 241;
+  --c-accent-fg: 255 255 255;
+  --c-success: 52 199 129;
+  --c-warning: 245 184 64;
+  --c-danger: 239 83 80;
+}
+
+.light {
+  --c-bg: 238 240 246;
+  --c-surface: 255 255 255;
+  --c-elevated: 255 255 255;
+  --c-border: 214 219 230;
+  --c-fg: 22 26 35;
+  --c-muted: 90 99 120;
+  --c-accent: 99 102 241;
+  --c-accent-fg: 255 255 255;
+  --c-success: 30 160 100;
+  --c-warning: 200 140 20;
+  --c-danger: 220 60 55;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-bg text-fg font-sans antialiased;
+    overscroll-behavior: none;
+    text-rendering: optimizeLegibility;
+    /* OS chrome should not feel like a web page: no accidental text selection. */
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Visible keyboard focus for accessibility (pointer focus stays quiet). */
+  :focus-visible {
+    outline: 2px solid rgb(var(--c-accent));
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  /* Re-enable selection where it actually matters (editors, terminal, notes). */
+  input,
+  textarea,
+  [contenteditable='true'],
+  .select-text {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--c-border));
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+@layer utilities {
+  /* Safe-area helpers for notches / home indicators. */
+  .pt-safe {
+    padding-top: env(safe-area-inset-top);
+  }
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .pl-safe {
+    padding-left: env(safe-area-inset-left);
+  }
+  .pr-safe {
+    padding-right: env(safe-area-inset-right);
+  }
+  .top-safe {
+    top: env(safe-area-inset-top);
+  }
+  .bottom-safe {
+    bottom: env(safe-area-inset-bottom);
+  }
+}

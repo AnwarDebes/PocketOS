@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" fill="none">
+  <defs>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6366F1"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0.12" cy="0" r="0.7">
+      <stop offset="0" stop-color="#6366F1" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#6366F1" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="1" cy="1.1" r="0.85">
+      <stop offset="0" stop-color="#8B5CF6" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="320" fill="#0b0d12"/>
+  <rect width="1200" height="320" fill="url(#glowA)"/>
+  <rect width="1200" height="320" fill="url(#glowB)"/>
+
+  <!-- app icon tile -->
+  <rect x="56" y="104" width="104" height="104" rx="26" fill="url(#brand)"/>
+  <rect x="92" y="128" width="54" height="42" rx="7" fill="#ffffff" fill-opacity="0.34"/>
+  <rect x="74" y="142" width="66" height="50" rx="8" fill="#ffffff"/>
+  <circle cx="86" cy="156" r="3.2" fill="#6366F1"/>
+  <circle cx="96" cy="156" r="3.2" fill="#6366F1" fill-opacity="0.6"/>
+  <circle cx="106" cy="156" r="3.2" fill="#6366F1" fill-opacity="0.35"/>
+
+  <!-- wordmark + tagline -->
+  <text x="186" y="151" font-family="'DejaVu Sans','Arial',sans-serif" font-size="62" font-weight="700" letter-spacing="-1" fill="#f3f4f8">PocketOS</text>
+  <text x="188" y="191" font-family="'DejaVu Sans','Arial',sans-serif" font-size="22" fill="#aab2c5">A desktop OS that runs inside your phone's browser</text>
+
+  <!-- capability chips -->
+  <g font-family="'DejaVu Sans','Arial',sans-serif" font-size="15" fill="#e3e6ef">
+    <rect x="188" y="219" width="150" height="32" rx="16" fill="#ffffff" fill-opacity="0.07" stroke="#6366F1" stroke-opacity="0.55"/>
+    <text x="263" y="240" text-anchor="middle">9 built-in apps</text>
+    <rect x="350" y="219" width="182" height="32" rx="16" fill="#ffffff" fill-opacity="0.07" stroke="#8B5CF6" stroke-opacity="0.55"/>
+    <text x="441" y="240" text-anchor="middle">Drag, snap, resize</text>
+    <rect x="544" y="219" width="134" height="32" rx="16" fill="#ffffff" fill-opacity="0.07" stroke="#6366F1" stroke-opacity="0.55"/>
+    <text x="611" y="240" text-anchor="middle">Offline PWA</text>
+  </g>
+
+  <!-- a phone holding real desktop windows (one spills past the frame) -->
+  <g>
+    <rect x="946" y="40" width="176" height="240" rx="30" fill="#14171f" stroke="#ffffff" stroke-opacity="0.14" stroke-width="2"/>
+    <rect x="954" y="48" width="160" height="224" rx="22" fill="#0e1320"/>
+    <rect x="1010" y="55" width="48" height="7" rx="3.5" fill="#ffffff" fill-opacity="0.12"/>
+
+    <!-- back window, spilling past the left edge of the phone -->
+    <rect x="898" y="118" width="150" height="92" rx="11" fill="#1b1f2e" stroke="#ffffff" stroke-opacity="0.12"/>
+    <rect x="898" y="118" width="150" height="19" rx="11" fill="#6366F1" fill-opacity="0.45"/>
+
+    <!-- front window -->
+    <rect x="968" y="150" width="134" height="104" rx="11" fill="#232838" stroke="#ffffff" stroke-opacity="0.16"/>
+    <rect x="968" y="150" width="134" height="19" rx="11" fill="url(#brand)"/>
+    <circle cx="982" cy="159.5" r="2.6" fill="#ffffff" fill-opacity="0.92"/>
+    <circle cx="991" cy="159.5" r="2.6" fill="#ffffff" fill-opacity="0.6"/>
+    <circle cx="1000" cy="159.5" r="2.6" fill="#ffffff" fill-opacity="0.4"/>
+    <rect x="980" y="182" width="84" height="7" rx="3.5" fill="#ffffff" fill-opacity="0.22"/>
+    <rect x="980" y="196" width="64" height="7" rx="3.5" fill="#ffffff" fill-opacity="0.16"/>
+    <rect x="980" y="210" width="74" height="7" rx="3.5" fill="#ffffff" fill-opacity="0.16"/>
+
+    <!-- dock -->
+    <rect x="992" y="246" width="84" height="16" rx="8" fill="#ffffff" fill-opacity="0.10"/>
+    <circle cx="1006" cy="254" r="3" fill="#6366F1"/>
+    <circle cx="1020" cy="254" r="3" fill="#8B5CF6"/>
+    <circle cx="1034" cy="254" r="3" fill="#34d399"/>
+    <circle cx="1048" cy="254" r="3" fill="#fb923c"/>
+    <circle cx="1062" cy="254" r="3" fill="#f472b6"/>
+  </g>
+</svg>
