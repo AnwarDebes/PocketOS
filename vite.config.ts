@@ -7,7 +7,12 @@ import { fileURLToPath, URL } from 'node:url'
 // - React + Fast Refresh
 // - PWA: offline service worker, installable manifest, fullscreen launch
 // - "@/..." path alias maps to src/
+// - BASE_PATH sets the public path: "/" by default (Vercel, Netlify, a custom domain),
+//   "/PocketOS/" for the GitHub Pages demo
+const base = process.env.BASE_PATH ?? '/'
+
 export default defineConfig({
+  base,
   plugins: [
     react(),
     VitePWA({
@@ -18,9 +23,9 @@ export default defineConfig({
         short_name: 'PocketOS',
         description:
           'A desktop environment in your phone browser. Windows, files, a terminal and apps, fully offline.',
-        id: '/',
-        start_url: '/',
-        scope: '/',
+        id: base,
+        start_url: base,
+        scope: base,
         display: 'fullscreen',
         display_override: ['fullscreen', 'standalone', 'minimal-ui'],
         orientation: 'any',
@@ -28,10 +33,10 @@ export default defineConfig({
         background_color: '#0b0d12',
         categories: ['productivity', 'utilities'],
         icons: [
-          { src: '/icon-192.png', sizes: '192x192', type: 'image/png' },
-          { src: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+          { src: `${base}icon-192.png`, sizes: '192x192', type: 'image/png' },
+          { src: `${base}icon-512.png`, sizes: '512x512', type: 'image/png' },
           {
-            src: '/icon-maskable-512.png',
+            src: `${base}icon-maskable-512.png`,
             sizes: '512x512',
             type: 'image/png',
             purpose: 'maskable',
@@ -40,7 +45,7 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{css,html,svg,png,ico,woff,woff2,webmanifest}', 'assets/index-*.js'],
-        navigateFallback: '/index.html',
+        navigateFallback: `${base}index.html`,
         cleanupOutdatedCaches: true,
         clientsClaim: true,
         maximumFileSizeToCacheInBytes: 2 * 1024 * 1024,

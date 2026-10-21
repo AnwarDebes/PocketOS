@@ -10,6 +10,8 @@
 ![React](https://img.shields.io/badge/React%2018-61DAFB?logo=react&logoColor=000)
 ![PWA](https://img.shields.io/badge/PWA-offline-5A0FC8?logo=pwa&logoColor=white)
 
+**[Open the live demo](https://anwardebes.github.io/PocketOS/)**: best on a phone, or resize the window to watch the windowing adapt.
+
 </div>
 
 # PocketOS
@@ -67,7 +69,15 @@ npm run build      # typecheck, then build to dist/
 npm run preview    # serve the built site (this is where the service worker and offline behaviour run)
 ```
 
-`dist/` is a static bundle. Deploying to Vercel needs no configuration changes; Netlify and GitHub Pages work too.
+`dist/` is a static bundle. Deploying to Vercel needs no configuration changes; Netlify works the same way.
+
+For a GitHub Pages project site, which is served from a sub-path, set the base path at build time:
+
+```bash
+BASE_PATH=/PocketOS/ npm run build
+```
+
+The workflow in [`.github/workflows/pages.yml`](.github/workflows/pages.yml) does this on every push to `main` and publishes the [live demo](https://anwardebes.github.io/PocketOS/).
 
 ### Other scripts
 
