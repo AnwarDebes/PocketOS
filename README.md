@@ -12,6 +12,8 @@
 
 **[Open the live demo](https://anwardebes.github.io/PocketOS/)**: best on a phone, or resize the window to watch the windowing adapt.
 
+▶ See this project in the film *Show Its Work*: https://youtu.be/pefnyZ-oCcM?t=1959
+
 </div>
 
 # PocketOS
@@ -94,21 +96,21 @@ The code is organized around core systems rather than one big blob.
 
 ```
 src/
-  kernel/      window manager, process registry, focus and z-order, event bus
+  kernel/      shared types (windows, apps, launch payloads, viewport mode)
   fs/          virtual filesystem layer (Dexie backed), path utils, file ops
-  store/       zustand stores (windows, processes, settings, fs cache)
+  store/       zustand stores: window manager, settings, shell session, persistence
   shell/       boot, lock screen, desktop, taskbar/dock, launcher, app switcher
   windowing/   Window component, title bar, resize handles, snapping, mobile mode
   apps/        one folder per built in app, each registers in the app registry
-  components/   shared UI primitives
-  hooks/        shared hooks
-  lib/          helpers and constants
-  styles/       global styles and design tokens
+  components/  shared UI primitives
+  hooks/       shared hooks
+  lib/         helpers and constants
+  styles/      global styles and design tokens
 ```
 
 Three systems are designed deliberately:
 
-- **Window manager (kernel)** owns every open window and its geometry, z-order, and focus, and handles the difference between desktop mode and mobile mode.
+- **Window manager** (`src/store/windows.ts`) owns every open window and its geometry, z-order, and focus, and handles the difference between desktop mode and mobile mode.
 - **Process and app model**: opening an app creates a process. Some apps are single instance, others allow multiple windows. Apps receive a launch payload, for example a file path to open.
 - **App registry** is the single source of truth for app metadata, so the launcher, the dock, and "open with" all stay in sync.
 
